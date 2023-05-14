@@ -1,0 +1,205 @@
+html{
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+body {
+    margin: 0;
+    background-color: #B8B0B0;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    font-family: monospace;
+}
+.topp {
+    text-align: center;
+    color:#923B2F;
+    position: absolute;
+    width: 100%;
+    font-size: 30px;
+}
+p {
+    color: #393232;
+    font-weight:bold;
+    font-size: 20px;
+}
+.wrapper {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.wrapper-body {
+    margin-top: 150px;
+    width: 850px;
+    height: 420px;
+    padding: 20px;
+    border: 1px solid #A1A1A1;    
+    background: #FBF0F0;
+}
+.list{
+    display: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+.list-body {
+    margin-top: 190px;
+    width: 450px;
+    height: 200px;
+    padding: 15px 30px;
+    border: 1px solid #A1A1A1;    
+    background:  #FBF0F0;
+
+}
+.textor {
+    font-size: 25px;
+    padding: 5px;
+    margin: 5px;
+    color: #393232;
+    font-weight:bold;
+}
+.copy {
+    background: #DFD3D3;
+    font-size: 7px;
+    border: 0px;
+    border-radius: 8px;
+}
+.password {
+    width: fit-content;
+    height: fit-content;
+    margin:auto;
+    cursor: pointer;
+    border: 1px solid #393232;
+    border-radius: 8px;
+    width: 440px; 
+    height: 100px; 
+    resize: none; 
+    font-size: 15px;
+    font-weight: bold;
+    background: #DFD3D3;
+    color: #393232;
+}
+.discreptionText {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.passwordRange {
+    width: 100%;
+}
+.passwordRangeWrapper .text {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #393232;
+    background: #DFD3D3;
+}
+.rangeWrapper {
+    display: flex;
+    color: #923B2F;
+}
+.rangeNumbers {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -2px;
+    color: #393232;
+    font-weight:bold;
+    font-size: 12px;
+}
+.rangeNumbers span {
+    display: block;
+    width: fit-content;
+    margin-left: 5px;
+    position: relative;
+}
+.rangeNumbers1 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -2px;
+    color: #393232;
+    font-weight:bold;
+    font-size: 12px;
+}
+.rangeNumbers1 span {
+    display: block;
+    width: fit-content;
+    margin-left: 8px;
+    position: relative;
+}
+.rangeNumbers span:nth-child(2) {
+    left: 5px;
+}
+.rangeNumbers span:nth-child(3) {
+    left: 10.5px;
+}
+.rangeNumbers span:nth-child(4) {
+    left: 11.3px;
+}
+.rangeNumbers span:nth-child(5) {
+    left: 9px;
+}
+.rangeNumbers span:nth-child(6) {
+    left: 6px;
+}
+.rangeNumbers span:nth-child(7) {
+    left: 3.7px;
+}
+.rangeNumbers span:nth-child(8) {
+    left: 1px;
+}
+.rangeNumbers span:nth-child(9) {
+    left: -1.5px;
+}
+.options {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.options span {
+    font-weight: 500;
+    font-size: 15px;
+    color: #393232;
+    font-size: 17px;
+}
+.optionItemWrapper {
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+.optionItemWrapper input {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    z-index: 100;
+}
+.optionItemWrapper label {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #393232;
+    color:#393232;
+    border-radius: 50%;
+    margin-left: -19px;
+    z-index: 0;
+}
+.optionItemWrapper input:checked + label{
+    background-color: #923B2F;
+}
+.checkboxText {
+    margin-left: 8px;
+    position: relative;
+    top: -2px;
+}
+.generateButton {
+    width: 200px;
+    height: 40px;
+    margin-left: 300px;
+    border-radius: 10px;
+    border: 1px solid #393232;
+    background: #DFD3D3;
+    color: #393232;
+    font-weight: bold;
+}
+.kon1{
+    font-size: 25px;
+}
+.kon2{
+    font-size: 10px;
+}
+
+
