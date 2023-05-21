@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Layout, theme, Typography, Col, Row, Slider, InputNumber, Switch, Space, Divider, Button, ConfigProvider } from 'antd';
+import { Layout, theme, Typography, Col, Row, Slider, InputNumber, Switch, Space,  Button, ConfigProvider } from 'antd';
 import './App.css';
 import { gen_pass } from './scripts/gener';
 
@@ -26,11 +26,11 @@ function App() {
     <ConfigProvider
     theme={{
       token: {
-        colorPrimary: '#820014',
+        colorPrimary: '#923B2F',
+        colorBgLayout: '#DFD5D2',
       },
     }}
     >
-  
     <Layout>
       <Content
         style={{
@@ -38,19 +38,24 @@ function App() {
         }}
       >
         <div>
-          <Title 
+          <Title  
             style={{
-              color: '#820014',
+              color: '#923B2F',
+              textAlign: 'center',
             }}
           >PASSWORD GENERATOR</Title>
         </div>
         <div
           style={{
             background: colorBgContainer,
-            minHeight: 400,
-            padding: 50,
+            minHeight: 550,
+            padding: '10px 50px',
           }}>
-          <Title level={3}>Выберите длину пароля</Title>
+          <Title level = {3}
+            style={{
+              color: '#322525',
+            }}
+          >Выберите длину пароля</Title>
           <Row>
             <Col span={12}>
               <Slider
@@ -72,27 +77,44 @@ function App() {
               />
             </Col>
           </Row>
-          <Title level={3}>Выберите то, что будет включать пароль:</Title>
-          <Space>
-            <Switch defaultChecked onChange={()=>{setIsCapital(!isCapital)}}/>
-            <Text>Заглавные буквы</Text>
-          </Space>
-          <Divider />
-          <Space>
-            <Switch defaultChecked onChange={()=>{setIsLowercase(!isLowercase)}}/>
-            <Text>Строчные буквы</Text>
-          </Space>
-          <Divider />
-          <Space>
-            <Switch defaultChecked onChange={()=>{setIsSpecial(!isSpecial)}}/>
-            <Text>Специальные символы</Text>
-          </Space>
-          <Divider />
-          <Space>
-            <Switch defaultChecked onChange={()=>{setIsNumber(!isNumber)}}/>
-            <Text>Цифры</Text>
-          </Space>
-          <Title level={3}>Выберите количество предлагаемых паролей</Title>
+          <Title level={3} 
+            style={{
+              color: '#322525',
+            }}
+          >Выберите то, что будет включать пароль:</Title>
+          <div> 
+            <Col>
+              <Row className="inp">
+                <Space>
+                  <Switch defaultChecked onChange={()=>{setIsCapital(!isCapital)}}/>
+                  <Text className="check">Заглавные буквы</Text>
+                </Space>
+              </Row>
+              <Row className="inp">  
+                <Space>
+                  <Switch defaultChecked onChange={()=>{setIsLowercase(!isLowercase)}}/>
+                  <Text className="check">Строчные буквы</Text>
+                </Space>
+              </Row>
+              <Row className="inp">
+                <Space>
+                  <Switch defaultChecked onChange={()=>{setIsSpecial(!isSpecial)}}/>
+                  <Text className="check">Специальные символы</Text>
+                </Space>
+              </Row>
+              <Row className="inp">
+                <Space>
+                  <Switch defaultChecked onChange={()=>{setIsNumber(!isNumber)}}/>
+                  <Text className="check">Цифры</Text>
+                </Space>
+              </Row>
+            </Col>
+          </div>
+          <Title level={3}
+            style={{
+              color: '#322525',
+            }}
+          >Выберите количество предлагаемых паролей</Title>
           <Row>
             <Col span={12}>
               <Slider
@@ -114,10 +136,14 @@ function App() {
               />
             </Col>
           </Row>
-          <Button type="primary" onClick={()=>{console.log(gen_pass(passwordLen, isNumber, isLowercase, isSpecial, isCapital))}}>Сгенерировать</Button>
+          <div 
+            style={{
+              padding: 30,
+              textAlign: 'center',
+            }}> 
+            <Button type="primary" className="butt" onClick={()=>{console.log(gen_pass(passwordLen, isNumber, isLowercase, isSpecial, isCapital))}}>Сгенерировать</Button>
+          </div>
         </div>
-      
-
       </Content>
       
     </Layout>
