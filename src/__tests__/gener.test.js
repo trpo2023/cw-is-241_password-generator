@@ -15,3 +15,13 @@ test('Password not include capital letter', ()=> {
   const password = gen_pass(7, true, true, true, false);
   expect(/[A-Z]/.test(password)).toBe(false);
 });
+
+test('Password include lowercase letter', ()=> {
+  const password = gen_pass(7, true, true, true, true);
+  expect(/[a-z]/.test(password)).toBe(true);
+});
+
+test('Password not include lowercase letter', ()=> {
+  const password = gen_pass(7, true, false, true, false);
+  expect(/[a-z]/.test(password)).toBe(false);
+});

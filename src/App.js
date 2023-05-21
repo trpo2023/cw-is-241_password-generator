@@ -1,14 +1,16 @@
 import { useState } from 'react';
-import { Layout, theme, Typography, Col, Row, Slider, InputNumber, Switch, Space,  Button, ConfigProvider, Modal } from 'antd';
+import { Layout, theme, Typography, Col, Row, Slider, InputNumber, Switch, Space,  Button, ConfigProvider, Modal, Divider } from 'antd';
 import './App.css';
 import { gen_pass } from './scripts/gener';
 
 const { Content } = Layout;
 const { Title, Text } = Typography;
+const minPasswordLen = 4;
+const minPasswordCount = 1;
 
 function App() {
   const {token: {colorBgContainer}} = theme.useToken(); 
-  const [passwordLen, setPasswordLen] = useState(4);
+  const [passwordLen, setPasswordLen] = useState(minPasswordLen);
   const onChangePasswordLen = (newValue) => {
     setPasswordLen(newValue);
   };
@@ -17,7 +19,7 @@ function App() {
   const [isSpecial, setIsSpecial] = useState(true);
   const [isNumber, setIsNumber] = useState(true);
 
-  const [passwordCount, setPasswordCount] = useState(1);
+  const [passwordCount, setPasswordCount] = useState(minPasswordCount);
   const onChangePasswordCount = (newValue) => {
     setPasswordCount(newValue);
   };
@@ -165,12 +167,14 @@ function App() {
               />
             </Col>
           </Row>
-          <div 
-            style={{
+          <div
+            style = {{
               padding: 30,
               textAlign: 'center',
-            }}> 
+            }}          
+          >
             <Button type="primary" className="butt" disabled={!toggleCheck()} onClick={showModal}>Сгенерировать</Button>
+            <Divider />
             {!toggleCheck() ? <Text type="danger">Выберите хотя бы один из вариантов</Text> : ''}
           </div>
         </div>
