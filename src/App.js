@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Layout, theme, Typography, Col, Row, Slider, InputNumber, Switch, Space,  Button, ConfigProvider } from 'antd';
+import { Layout, theme, Typography, Col, Row, Slider, InputNumber, Switch, Space,  Button, ConfigProvider, Modal } from 'antd';
 import './App.css';
 import { gen_pass } from './scripts/gener';
 
@@ -20,6 +20,35 @@ function App() {
   const [passwordCount, setPasswordCount] = useState(1);
   const onChangePasswordCount = (newValue) => {
     setPasswordCount(newValue);
+  };
+
+  const toggleCheck = () => { 
+    if (isCapital) return true;
+    if (isLowercase) return true;
+    if (isSpecial) return true;
+    if (isNumber) return true;
+    return false;
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+  
+  const getPassword = () => {
+    let pass_arr = [];
+    for (let i = 0; i < passwordCount; i++) {
+      pass_arr.push(gen_pass(passwordLen, isNumber, isLowercase, isSpecial, isCapital));
+    }
+    return (pass_arr.map((item) => {
+      return (<Text>{item}</Text>)
+    })) ;
   };
 
   return (
@@ -141,9 +170,18 @@ function App() {
               padding: 30,
               textAlign: 'center',
             }}> 
-            <Button type="primary" className="butt" onClick={()=>{console.log(gen_pass(passwordLen, isNumber, isLowercase, isSpecial, isCapital))}}>Сгенерировать</Button>
+            <Button type="primary" className="butt" disabled={!toggleCheck()} onClick={showModal}>Сгенерировать</Button>
+            {!toggleCheck() ? <Text type="danger">Выберите хотя бы один из вариантов</Text> : ''}
           </div>
         </div>
+        <Modal title="Предалагаемые пароли:" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+            <Space 
+              direction="vertical" 
+              size="small"
+            >
+              {getPassword()}
+            </Space>
+        </Modal>
       </Content>
       
     </Layout>
