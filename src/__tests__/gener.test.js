@@ -11,7 +11,7 @@ test('Password include capital letter', ()=> {
   expect(/[A-Z]/.test(password)).toBe(true);
 });
 
-test('Password include capital letter', ()=> {
+test('Password not include capital letter', ()=> {
   const password = gen_pass(7, true, true, true, false);
   expect(/[A-Z]/.test(password)).toBe(false);
 });
