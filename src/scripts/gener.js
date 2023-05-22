@@ -10,6 +10,32 @@ export function gen_pass(passwordLen, isNumber, isLowercase, isSpecial, isCapita
     let generatedPassword = "";
     let randik = 0;
   
+    if (isNumber) {
+        generatedPassword += Math.floor(Math.random() * 10);
+        passwordLen--;
+    } 
+    
+    if (isLowercase) {
+        let amount;
+        amount = Math.floor(Math.random() * 26);
+        generatedPassword += Letters[amount];
+        passwordLen--;
+    } 
+    
+    if (isCapital) {
+        let amount;
+        amount = Math.floor(Math.random() * 26);
+        generatedPassword += Letters[amount].toUpperCase();
+        passwordLen--;
+    } 
+
+    if (isSpecial) {
+        let amount;
+        amount = Math.floor(Math.random() * 26);
+        generatedPassword += Simbols[amount];
+        passwordLen--;
+    }
+    
     while (passwordLen > 0) {
         randik = Math.floor(Math.random() * 4 + 1);
         if (randik === 1) {
