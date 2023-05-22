@@ -35,6 +35,7 @@ export function gen_pass(passwordLen, isNumber, isLowercase, isSpecial, isCapita
         generatedPassword += Simbols[amount];
         passwordLen--;
     }
+    let generatedPassword1 = generatedPassword;
     
     while (passwordLen > 0) {
         randik = Math.floor(Math.random() * 4 + 1);
@@ -64,7 +65,9 @@ export function gen_pass(passwordLen, isNumber, isLowercase, isSpecial, isCapita
                 generatedPassword += Simbols[amount];
             } 
         }
-        passwordLen--;
+        if (generatedPassword1 != generatedPassword) {
+            passwordLen--;
+        }
     }
     return  generatedPassword;
 };
