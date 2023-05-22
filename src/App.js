@@ -79,7 +79,7 @@ function App() {
         <div
           style={{
             background: colorBgContainer,
-            minHeight: 550,
+            minHeight: 670,
             padding: '10px 50px',
           }}>
           <Title level = {3}
