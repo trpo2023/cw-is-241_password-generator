@@ -65,7 +65,7 @@ export function gen_pass(passwordLen, isNumber, isLowercase, isSpecial, isCapita
                 generatedPassword += Simbols[amount];
             } 
         }
-        if (generatedPassword1 != generatedPassword) {
+        if (generatedPassword1 !== generatedPassword) {
             passwordLen--;
             generatedPassword1 = generatedPassword;
         }
