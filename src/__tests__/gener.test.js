@@ -26,4 +26,22 @@ test('Password doesnot include lowercase letter', ()=> {
   expect(/[a-z]/.test(password)).toBe(false);
 });
 
+test('Password include symbols', ()=> {
+  const password = gen_pass(7, true, true, true, true);
+  expect(/[!-?]/.test(password)).toBe(true);
+});
 
+test('Password doesnot include symbols', ()=> {
+  const password = gen_pass(7, true, true, false, true);
+  expect(/[!-?]/.test(password)).toBe(false);
+});
+
+test('Password include numbers', ()=> {
+  const password = gen_pass(7, true, true, true, true);
+  expect(/[0-9]/.test(password)).toBe(true);
+});
+
+test('Password doesnot include numbers', ()=> {
+  const password = gen_pass(7, false, true, true, false);
+  expect(/[0-9]/.test(password)).toBe(false);
+});
