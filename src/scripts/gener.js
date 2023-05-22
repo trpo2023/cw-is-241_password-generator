@@ -67,6 +67,7 @@ export function gen_pass(passwordLen, isNumber, isLowercase, isSpecial, isCapita
         }
         if (generatedPassword1 != generatedPassword) {
             passwordLen--;
+            generatedPassword1 = generatedPassword;
         }
     }
     return  generatedPassword;
